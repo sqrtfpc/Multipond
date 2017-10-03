@@ -5,8 +5,8 @@ from MultipondFunctions import *
 from pandas import DataFrame
 from os.path import expanduser
 
-#Let's assume the location of the files we want is in a folder
-#called 16094 on the user's desktop. This will get the path.
+# Let's assume the location of the files we want is in a folder
+# called 16094 on the user's desktop. This will get the path.
 
 print(expanduser("~"))
 print(os.name)
@@ -42,12 +42,12 @@ hydrographQ = pd.read_csv(documentFolder + delimeter + r"Q.csv")
 eastPondInflows = [hydrographA, hydrographB, hydrographC, hydrographD, hydrographF, hydrographG, hydrographM, hydrographN, hydrographO]
 westPondInflows = [hydrographH, hydrographI, hydrographJ, hydrographK, hydrographL]
 
-#Create the main tables we'll be populating
+# Create the main tables we'll be populating
 
 mainColumns = ['Timestep', 'East Flow', 'West Flow', 'East Volume Inflow', 'West Volume Inflow', 'East Start Volume', 'West Start Volume', 'Outflow', 'West Mid Volume', 'West Elevation', 
                'East Elevation', 'Cross Flow Direction', 'Cross Flow Amount', 'East End Volume', 'West End Volume']
 
-#This will call the sumHydrographs function to add all the inflows together in the appropriate pond column
+# This will call the sumHydrographs function to add all the inflows together in the appropriate pond column
 
 resultsTable = DataFrame(0.0, index = hydrographA.index, columns = mainColumns)
 resultsTable = sumHydrographs(resultsTable, eastPondInflows, 'East')
@@ -57,15 +57,15 @@ for index, row in resultsTable.iterrows():
     if index > 550.0 and index < 650:
         print(str(resultsTable.loc[index, 'East Flow']) + "........." + str(resultsTable.loc[index, 'West Flow']))
 
-#Now we calculate the volume increments. All volumes are done in units of acre-feet,
-#to both respect the traditions of civil engineering and irritate physicists.
+# Now we calculate the volume increments. All volumes are done in units of acre-feet,
+# to both respect the traditions of civil engineering and irritate physicists.
 
 
-#Whole hell of a bunch of TODO beyond this point, along with some proof of concept
-#Stuff to use later...
+# Whole hell of a bunch of TODO beyond this point, along with some proof of concept
+# Stuff to use later...
 
-#Given the above, we now have our headwater, tailwater and
-#directional conditions. Lets now look up the flow rate
+# Given the above, we now have our headwater, tailwater and
+# directional conditions. Lets now look up the flow rate
 
 
 headwater = 2.0
