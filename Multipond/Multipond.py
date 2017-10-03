@@ -11,6 +11,8 @@ from os.path import expanduser
 print(expanduser("~"))
 print(os.name)
 
+# Check operating system
+
 if os.name == "nt":
     delimeter = chr(92)    
     documentFolder = expanduser("~") + r"\Desktop\16094"
